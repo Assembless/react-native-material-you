@@ -185,7 +185,7 @@ android {
 }
 
 dependencies {
-    implementation project(':react-native-module-template')
+    implementation project(':react-native-material-you')
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleDynamicVersion

@@ -7,7 +7,7 @@
     "module": "CommonJS",
     "noEmit": true,
     "paths": {
-      "react-native-module-template": ["../src"]
+      "react-native-material-you": ["../src"]
     },
     "skipLibCheck": true,
     "strict": true,

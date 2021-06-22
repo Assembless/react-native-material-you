@@ -11,16 +11,16 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		AD0F37EFFB33AF9F720C5746 /* libPods-example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3F9DD7861D38FA3D1B8633 /* libPods-example.a */; };
 		FAA6DE282607FC1C0044CA6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA6DE272607FC1C0044CA6D /* AppDelegate.swift */; };
-		FAE31FCD265B9F6F007094C1 /* libRNModuleTemplateModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE31FCC265B9F5F007094C1 /* libRNModuleTemplateModule.a */; };
+		FAE31FCD265B9F6F007094C1 /* libRNMaterialYouModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE31FCC265B9F5F007094C1 /* libRNMaterialYouModule.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		FAE31FCB265B9F5F007094C1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FAE31FC7265B9F5F007094C1 /* RNModuleTemplateModule.xcodeproj */;
+			containerPortal = FAE31FC7265B9F5F007094C1 /* RNMaterialYouModule.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = FA0EFF60236CC8FB00069FA8;
-			remoteInfo = RNModuleTemplateModule;
+			remoteInfo = RNMaterialYouModule;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -35,7 +35,7 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FAA6DE272607FC1C0044CA6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = example/AppDelegate.swift; sourceTree = "<group>"; };
 		FAA6DE2A2607FC480044CA6D /* example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "example-Bridging-Header.h"; path = "example/example-Bridging-Header.h"; sourceTree = "<group>"; };
-		FAE31FC7265B9F5F007094C1 /* RNModuleTemplateModule.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNModuleTemplateModule.xcodeproj; path = ../../ios/RNModuleTemplateModule.xcodeproj; sourceTree = "<group>"; };
+		FAE31FC7265B9F5F007094C1 /* RNMaterialYouModule.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNMaterialYouModule.xcodeproj; path = ../../ios/RNMaterialYouModule.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAE31FCD265B9F6F007094C1 /* libRNModuleTemplateModule.a in Frameworks */,
+				FAE31FCD265B9F6F007094C1 /* libRNMaterialYouModule.a in Frameworks */,
 				AD0F37EFFB33AF9F720C5746 /* libPods-example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,7 +84,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				FAE31FC7265B9F5F007094C1 /* RNModuleTemplateModule.xcodeproj */,
+				FAE31FC7265B9F5F007094C1 /* RNMaterialYouModule.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -114,7 +114,7 @@
 		FAE31FC8265B9F5F007094C1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FAE31FCC265B9F5F007094C1 /* libRNModuleTemplateModule.a */,
+				FAE31FCC265B9F5F007094C1 /* libRNMaterialYouModule.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,7 +171,7 @@
 			projectReferences = (
 				{
 					ProductGroup = FAE31FC8265B9F5F007094C1 /* Products */;
-					ProjectRef = FAE31FC7265B9F5F007094C1 /* RNModuleTemplateModule.xcodeproj */;
+					ProjectRef = FAE31FC7265B9F5F007094C1 /* RNMaterialYouModule.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -182,10 +182,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		FAE31FCC265B9F5F007094C1 /* libRNModuleTemplateModule.a */ = {
+		FAE31FCC265B9F5F007094C1 /* libRNMaterialYouModule.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libRNModuleTemplateModule.a;
+			path = libRNMaterialYouModule.a;
 			remoteRef = FAE31FCB265B9F5F007094C1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};

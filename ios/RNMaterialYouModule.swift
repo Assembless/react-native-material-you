@@ -1,14 +1,14 @@
 //
-//  RNModuleTemplateModule.swift
-//  RNModuleTemplateModule
+//  RNMaterialYouModule.swift
+//  RNMaterialYouModule
 //
-//  Copyright © 2021 Alex Demchenko. All rights reserved.
+//  Copyright © 2021 Assembless. All rights reserved.
 //
 
 import Foundation
 
-@objc(RNModuleTemplateModule)
-class RNModuleTemplateModule: NSObject {
+@objc(RNMaterialYouModule)
+class RNMaterialYouModule: NSObject {
   @objc
   func constantsToExport() -> [AnyHashable : Any]! {
     return ["count": 1]

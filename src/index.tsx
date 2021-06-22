@@ -1,10 +1,13 @@
+/* eslint-disable prettier/prettier */
 import * as React from 'react'
 import { Button, NativeModules, StyleSheet, Text, View } from 'react-native'
 
 export const addOne = (input: number) => input + 1
 
-export const Counter = () => {
+export const Counter = (props: any) => {
   const [count, setCount] = React.useState(0)
+
+  console.warn("Counter Props =>", props);
 
   return (
     <View style={styles.container}>
@@ -23,4 +26,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default NativeModules.RNModuleTemplateModule
+export default NativeModules.RNMaterialYouModule
