@@ -1,7 +1,7 @@
 {
   "name": "react-native-material-you",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.0-alpha.0",
+  "description": "👩‍🎨 Material You native module for React Native",
   "homepage": "https://github.com/Assembless/react-native-material-you#readme",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
