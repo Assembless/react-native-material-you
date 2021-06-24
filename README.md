@@ -1,5 +1,7 @@
 # react-native-material-you
 
+:warning: This package is still in development. It is based on Android 12 Beta 2 feature called Material You (codename "monet").
+
 ## How to debug
 
 1. Install dependencies (in root dir and ./example dir)
@@ -9,4 +11,4 @@
 
 ## Misc
 
-Read more about template: https://github.com/demchenkoalex/react-native-module-template
+Read more about this template: https://github.com/demchenkoalex/react-native-module-template
