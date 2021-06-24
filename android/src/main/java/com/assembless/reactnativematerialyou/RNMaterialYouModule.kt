@@ -14,25 +14,6 @@ class RNMaterialYouModule(val reactContext: ReactApplicationContext) : ReactCont
     override fun getConstants(): MutableMap<String, Any> {
         val color: MutableMap<String, Any> = HashMap()
 
-        // TODO: Avoid this ugly repetition down there.
-        /*val shades = arrayOf("0", "10", "50", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000");
-        val colors = arrayOf("accent1", "accent2", "accent3", "neutral1", "neutral2");
-
-        val color: MutableMap<String, Any> = HashMap()
-
-        for(c in colors) {
-            val colorShades = arrayOf<String>();
-
-            for(s in shades) {
-                val cName = "system_" + c + "_" + s;
-                val rClr = listOf(android.R.color);
-
-                colorShades.plus(rClr[cName]);
-            }
-
-            color["system_$c"] = colorShades;
-        }*/
-
         color["system_accent1"] = arrayOf(
             android.R.color.system_accent1_0,
             android.R.color.system_accent1_10,
