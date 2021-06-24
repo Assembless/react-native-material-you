@@ -5,44 +5,56 @@ import MaterialYou from 'react-native-material-you'
 const shades = [0, 10, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 
 const App = () => {
+  const system_accent1El = MaterialYou.system_accent1.map(mapToComponent)
+  const system_accent2El = MaterialYou.system_accent2.map(mapToComponent)
+  const system_accent3El = MaterialYou.system_accent3.map(mapToComponent)
+  const system_neutral1El = MaterialYou.system_neutral1.map(mapToComponent)
+  const system_neutral2El = MaterialYou.system_neutral2.map(mapToComponent)
+
   useEffect(() => {
     console.log("MaterialYou Package =>", MaterialYou)
-    console.log("\n");
-
-    MaterialYou.system_accent1.forEach((accent: number, i: number) => {
-      const pClr =  parseColorInt(accent) ?? [];
-      console.log(`Parsed rgba / system_accent1_${shades[i]} =>`, `rgba(${pClr[1]}, ${pClr[2]}, ${pClr[3]}, 0.${pClr[0]})`)
-    })
-    console.log("\n");
-    MaterialYou.system_accent2.forEach((accent: number, i: number) => {
-      const pClr =  parseColorInt(accent) ?? [];
-      console.log(`Parsed rgba / system_accent2_${shades[i]} =>`, `rgba(${pClr[1]}, ${pClr[2]}, ${pClr[3]}, 0.${pClr[0]})`)
-    })
-    console.log("\n");
-    MaterialYou.system_accent3.forEach((accent: number, i: number) => {
-      const pClr =  parseColorInt(accent) ?? [];
-      console.log(`Parsed rgba / system_accent3_${shades[i]} =>`, `rgba(${pClr[1]}, ${pClr[2]}, ${pClr[3]}, 0.${pClr[0]})`)
-    })
-    console.log("\n");
-    MaterialYou.system_neutral1.forEach((accent: number, i: number) => {
-      const pClr =  parseColorInt(accent) ?? [];
-      console.log(`Parsed rgba / system_neutral1_${shades[i]} =>`, `rgba(${pClr[1]}, ${pClr[2]}, ${pClr[3]}, 0.${pClr[0]})`)
-    })
-    console.log("\n");
-    MaterialYou.system_neutral2.forEach((accent: number, i: number) => {
-      const pClr =  parseColorInt(accent) ?? [];
-      console.log(`Parsed rgba / system_neutral2_${shades[i]} =>`, `rgba(${pClr[1]}, ${pClr[2]}, ${pClr[3]}, 0.${pClr[0]})`)
-    })
   })
 
-  return <ReactNative.View style={{backgroundColor: MaterialYou.system_accent1[7]}}>
-    
-    <ReactNative.Text style={{color: MaterialYou.system_neutral1[0]}}>My Pen is long: {JSON.stringify(MaterialYou)}</ReactNative.Text>
-  </ReactNative.View>
+  return <ReactNative.ScrollView>
+    <ReactNative.Text>Material You for RN (Assembless Research)</ReactNative.Text>
+
+    <ReactNative.View style={{ marginTop: 18 }}>
+      <ReactNative.View style={{ paddingVertical: 26, borderTopColor: "#eee", borderTopWidth: 2 }}>
+        <ReactNative.Text>system_accent1</ReactNative.Text>
+        <ReactNative.View style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center", justifyContent: "flex-start" }}>{system_accent1El}</ReactNative.View>
+      </ReactNative.View>
+      <ReactNative.View style={{ paddingVertical: 26, borderTopColor: "#eee", borderTopWidth: 2 }}>
+        <ReactNative.Text>system_accent2</ReactNative.Text>
+        <ReactNative.View style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center", justifyContent: "flex-start" }}>{system_accent2El}</ReactNative.View>
+      </ReactNative.View>
+      <ReactNative.View style={{ paddingVertical: 26, borderTopColor: "#eee", borderTopWidth: 2 }}>
+        <ReactNative.Text>system_accent3</ReactNative.Text>
+        <ReactNative.View style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center", justifyContent: "flex-start" }}>{system_accent3El}</ReactNative.View>
+      </ReactNative.View>
+      <ReactNative.View style={{ paddingVertical: 26, borderTopColor: "#eee", borderTopWidth: 2 }}>
+        <ReactNative.Text>system_neutral1</ReactNative.Text>
+        <ReactNative.View style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center", justifyContent: "flex-start" }}>{system_neutral1El}</ReactNative.View>
+      </ReactNative.View>
+      <ReactNative.View style={{ paddingVertical: 26, borderTopColor: "#eee", borderTopWidth: 2 }}>
+        <ReactNative.Text>system_neutral2</ReactNative.Text>
+        <ReactNative.View style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center", justifyContent: "flex-start" }}>{system_neutral2El}</ReactNative.View>
+      </ReactNative.View>
+    </ReactNative.View>
+  </ReactNative.ScrollView>
 }
 
-const parseColorInt = (c: number) => {
-  return c.toString().match(/.{1,2}/g);
+const ColorBlock = (props: { color: string }) => {
+  return <ReactNative.View style={{ width: 52, height: 52, borderRadius: 52, marginBottom: 14, backgroundColor: props.color }}></ReactNative.View>
+}
+
+const mapToComponent = (color: string, i: number) => {
+  return <ReactNative.View style={{ display: "flex", alignItems: "center", justifyContent: "center", marginHorizontal: 12, marginVertical: 16 }}>
+    <ColorBlock key={color + shades[i].toString()} color={color} />
+    <ReactNative.View>
+      <ReactNative.Text style={{ color: "#000", textAlign: "center" }}>{shades[i]}</ReactNative.Text>
+      <ReactNative.Text style={{ color: "#000", textAlign: "center" }}>{color}</ReactNative.Text>
+    </ReactNative.View>
+  </ReactNative.View>;
 }
 
 export default App
