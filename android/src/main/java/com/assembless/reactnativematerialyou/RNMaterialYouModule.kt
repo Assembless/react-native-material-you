@@ -7,7 +7,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule
 import kotlin.collections.HashMap
 
 
-class RNMaterialYouModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
+class RNMaterialYouModule(val reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
     override fun getName() = "RNMaterialYouModule"
 
@@ -116,9 +116,9 @@ class RNMaterialYouModule(reactContext: ReactApplicationContext) : ReactContextB
         return color
     }
 
-    private fun colorToHex(c: Int): Int {
+    private fun colorToHex(c: Int): String {
+        val hex = reactContext.getColor(c);
 
-        return c;
-        //return java.lang.String.format("#%06X", 0xFFFFFF and c)
+        return java.lang.String.format("#%06X", 0xFFFFFF and hex);
     }
 }
