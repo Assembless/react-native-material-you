@@ -1,6 +1,6 @@
 # react-native-material-you
 
-:warning: This package is still in development. It is based on Android 12 Beta 2 feature called Material You (codename "monet").
+:warning: This package is still in development. It is based on Android 12 Beta 5 feature called Material You (codename "monet").
 
 ## How to debug
 
