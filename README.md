@@ -20,7 +20,6 @@ npm install @assembless/react-native-material-you
 ```
 
 ## How to use
-A palette generation algorithm then creates a rich palette of 5 colors — 2 neutral and 3 accent colors — as well as 12 shades of Material color that are used to determine the hues closest to the user’s wallpaper.
 ### Get palette synchronously
 The `getPaletteSync` function returns a rich palette of 5 system generated colors (`system_accent1`, `system_accent2`, `system_accent3`, `system_neutral1`, `system_neutral2`) and each containing 12 shades of Material color in hex strings that are used to determine the hues closest to the user’s wallpaper. The color constants are passed from the native module. Check out the [Android documentation](https://developer.android.com/reference/android/R.color#system_accent1_0) for more details about system generated colors.
 
