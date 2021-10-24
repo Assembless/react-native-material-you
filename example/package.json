@@ -11,15 +11,16 @@
     "test": "jest"
   },
   "dependencies": {
+    "@types/react": "^17.0.30",
     "react": "^17.0.2",
-    "react-native": "^0.64.1"
+    "react-native": "^0.66.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/runtime": "^7.14.0",
     "@react-native-community/eslint-config": "^2.0.0",
     "@types/jest": "^26.0.23",
-    "@types/react-native": "^0.64.8",
+    "@types/react-native": "^0.65.7",
     "@types/react-test-renderer": "^17.0.1",
     "babel-jest": "^26.6.3",
     "eslint": "^7.27.0",

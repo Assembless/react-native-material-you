@@ -22,12 +22,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion safeExtGet('compileSdkVersion', "android-S")
+    compileSdkVersion safeExtGet('compileSdkVersion', "31.0.0")
     // buildToolsVersion safeExtGet('buildToolsVersion', '30.0.3')
 
     defaultConfig {
-        minSdkVersion safeExtGet('minSdkVersion', "S")
-        targetSdkVersion safeExtGet('targetSdkVersion', "S")
+        minSdkVersion safeExtGet('minSdkVersion', "31")
+        targetSdkVersion safeExtGet('targetSdkVersion', "31")
     }
 }
 
