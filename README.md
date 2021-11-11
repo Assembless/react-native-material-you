@@ -1,11 +1,17 @@
 # react-native-material-you
 Bring newest Android 12 feature [Material You](https://material.io/blog/announcing-material-you) to your React Native app. This package enables you to use the from wallpaper generated colors in your app. 
 
+![RNMY Thumbnail](https://i.imgur.com/fcdOyLs.png)
+![npm (tag)](https://img.shields.io/npm/v/@assembless/react-native-material-you/latest?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues-raw/assembless/react-native-material-you?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/assembless/react-native-material-you?style=for-the-badge)
+![NPM](https://img.shields.io/npm/l/@assembless/react-native-material-you?style=for-the-badge)
+![npm](https://img.shields.io/npm/dt/@assembless/react-native-material-you?style=for-the-badge)
+
 ## Features
 
-- Material You generated color palette
-- Supports React hooks
-- Subscribes to system palette changes
+- 🪝 Supports React hooks
+- ♻️ Refreshes palette when the wallpaper changes
 
 ## How to install
 
@@ -75,6 +81,5 @@ const MyComponent = () => {
 ## How to debug
 
 1. Install dependencies (in root dir and ./example dir)
-2. Change "main" in `package.json` file from `lib/index.js` to `src/index.tsx`. (please do not push that as this is crucial in deployment!)
-3. Open the `example` directory project in Android Studio, build and run the project. (`./example/android`)
-4. Run `yarn start` in the `example` directory.
+2. Open the `example` directory project in Android Studio, build and run the project. (`./example/android`)
+3. Run `yarn start` in the `example` directory.
