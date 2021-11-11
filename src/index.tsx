@@ -1,66 +1,11 @@
 /* eslint-disable prettier/prettier */
 import * as React from 'react'
 import { AppState, NativeModules } from 'react-native'
+
+import { DEFAULT_PALETTE } from './constants';
+import { MaterialYouPalette } from './types';
+
 const { RNMaterialYouModule } = NativeModules
-
-type MaterialYouPalette = {
-    system_accent1: string[];
-    system_accent2: string[];
-    system_accent3: string[];
-    system_neutral1: string[];
-    system_neutral2: string[];
-}
-
-const DEFAULT_PALETTE: MaterialYouPalette = Object.freeze({
-    // system_accent1:  [PlatformColor("@android:color/system_accent1_0").toString(), PlatformColor("@android:color/system_accent1_10").toString(), PlatformColor("@android:color/system_accent1_50").toString(), PlatformColor("@android:color/system_accent1_100").toString(), PlatformColor("@android:color/system_accent1_200").toString(), PlatformColor("@android:color/system_accent1_300").toString(), PlatformColor("@android:color/system_accent1_400").toString(), PlatformColor("@android:color/system_accent1_500").toString(), PlatformColor("@android:color/system_accent1_600").toString(), PlatformColor("@android:color/system_accent1_700").toString(), PlatformColor("@android:color/system_accent1_800").toString(), PlatformColor("@android:color/system_accent1_900").toString(), PlatformColor("@android:color/system_accent1_1000").toString()],
-    // system_accent2:  [PlatformColor("@android:color/system_accent2_0").toString(), PlatformColor("@android:color/system_accent2_10").toString(), PlatformColor("@android:color/system_accent2_50").toString(), PlatformColor("@android:color/system_accent2_100").toString(), PlatformColor("@android:color/system_accent2_200").toString(), PlatformColor("@android:color/system_accent2_300").toString(), PlatformColor("@android:color/system_accent2_400").toString(), PlatformColor("@android:color/system_accent2_500").toString(), PlatformColor("@android:color/system_accent2_600").toString(), PlatformColor("@android:color/system_accent2_700").toString(), PlatformColor("@android:color/system_accent2_800").toString(), PlatformColor("@android:color/system_accent2_900").toString(), PlatformColor("@android:color/system_accent2_1000").toString()],
-    // system_accent3:  [PlatformColor("@android:color/system_accent3_0").toString(), PlatformColor("@android:color/system_accent3_10").toString(), PlatformColor("@android:color/system_accent3_50").toString(), PlatformColor("@android:color/system_accent3_100").toString(), PlatformColor("@android:color/system_accent3_200").toString(), PlatformColor("@android:color/system_accent3_300").toString(), PlatformColor("@android:color/system_accent3_400").toString(), PlatformColor("@android:color/system_accent3_500").toString(), PlatformColor("@android:color/system_accent3_600").toString(), PlatformColor("@android:color/system_accent3_700").toString(), PlatformColor("@android:color/system_accent3_800").toString(), PlatformColor("@android:color/system_accent3_900").toString(), PlatformColor("@android:color/system_accent3_1000").toString()],
-    // system_neutral1: [PlatformColor("@android:color/system_neutral1_0").toString(), PlatformColor("@android:color/system_neutral1_10").toString(), PlatformColor("@android:color/system_neutral1_50").toString(), PlatformColor("@android:color/system_neutral1_100").toString(), PlatformColor("@android:color/system_neutral1_200").toString(), PlatformColor("@android:color/system_neutral1_300").toString(), PlatformColor("@android:color/system_neutral1_400").toString(), PlatformColor("@android:color/system_neutral1_500").toString(), PlatformColor("@android:color/system_neutral1_600").toString(), PlatformColor("@android:color/system_neutral1_700").toString(), PlatformColor("@android:color/system_neutral1_800").toString(), PlatformColor("@android:color/system_neutral1_900").toString(), PlatformColor("@android:color/system_neutral1_1000").toString()],
-    // system_neutral2: [PlatformColor("@android:color/system_neutral2_0").toString(), PlatformColor("@android:color/system_neutral2_10").toString(), PlatformColor("@android:color/system_neutral2_50").toString(), PlatformColor("@android:color/system_neutral2_100").toString(), PlatformColor("@android:color/system_neutral2_200").toString(), PlatformColor("@android:color/system_neutral2_300").toString(), PlatformColor("@android:color/system_neutral2_400").toString(), PlatformColor("@android:color/system_neutral2_500").toString(), PlatformColor("@android:color/system_neutral2_600").toString(), PlatformColor("@android:color/system_neutral2_700").toString(), PlatformColor("@android:color/system_neutral2_800").toString(), PlatformColor("@android:color/system_neutral2_900").toString(), PlatformColor("@android:color/system_neutral2_1000").toString()],
-    system_accent1: ["#FFFFFF", "#FAFAFA", "#F9F9F9", "#F8F8F8", "#F7F7F7", "#F6F6F6", "#F5F5F5", "#F4F4F4", "#F3F3F3", "#F2F2F2", "#F1F1F1", "#EFEFEF", "#EEEEEE"],
-    system_accent2: ["#FFFFFF", "#FAFAFA", "#F9F9F9", "#F8F8F8", "#F7F7F7", "#F6F6F6", "#F5F5F5", "#F4F4F4", "#F3F3F3", "#F2F2F2", "#F1F1F1", "#EFEFEF", "#EEEEEE"],
-    system_accent3: ["#FFFFFF", "#FAFAFA", "#F9F9F9", "#F8F8F8", "#F7F7F7", "#F6F6F6", "#F5F5F5", "#F4F4F4", "#F3F3F3", "#F2F2F2", "#F1F1F1", "#EFEFEF", "#EEEEEE"],
-    system_neutral1: ["#FFFFFF", "#FAFAFA", "#F9F9F9", "#F8F8F8", "#F7F7F7", "#F6F6F6", "#F5F5F5", "#F4F4F4", "#F3F3F3", "#F2F2F2", "#F1F1F1", "#EFEFEF", "#EEEEEE"],
-    system_neutral2: ["#FFFFFF", "#FAFAFA", "#F9F9F9", "#F8F8F8", "#F7F7F7", "#F6F6F6", "#F5F5F5", "#F4F4F4", "#F3F3F3", "#F2F2F2", "#F1F1F1", "#EFEFEF", "#EEEEEE"],
-});
-
-/**
- * 
- * @returns 
- */
-export const getPalette = async () => {
-    try {
-        const palette = await RNMaterialYouModule?.getMaterialYouPalettePromise();
-        if(!palette)
-            throw new Error("Material You is not supported on this device.");
-
-        return { ...palette }
-    } catch (err) {
-        console.error(err);
-        return getInitialPalette();
-    }
-}
-
-export const getPaletteSync = (): MaterialYouPalette | null => {
-    try {
-        const palette = getInitialPalette();
-
-        if(!palette)
-            throw new Error("Material You is not supported on this device.");
-
-        return { ...palette }
-    } catch (err) {
-        console.error(err);
-        return null;
-    }
-}
-
-export const deviceSupportsMaterialYou = () => RNMaterialYouModule?.isSupported ?? false;
-
-let cachedPalette: MaterialYouPalette = null as unknown as MaterialYouPalette;
-
-const getInitialPalette = () => RNMaterialYouModule?.initialPalette ?? cachedPalette ?? DEFAULT_PALETTE;
-
 
 /**
  * Hook to get the generated Material You colors.
@@ -78,11 +23,11 @@ export const useMaterialYou = () => {
 
     if (stateRef.current === null) {
         const _refresh = async () => {
-            const plt = await getPalette();
+            const _palette = await getPalette();
 
-            if (plt && plt.system_accent1 && plt.system_accent2 && plt.system_accent3 && plt.system_neutral1 && plt.system_neutral2) {
-                setPalette(plt)
-                cachedPalette = plt;
+            if (_palette && _palette.system_accent1 && _palette.system_accent2 && _palette.system_accent3 && _palette.system_neutral1 && _palette.system_neutral2) {
+                setPalette(_palette)
+                cachedPalette = _palette;
             } else {
                 console.warn("Something went wrong while extracting Material You palette.");
             }
@@ -103,19 +48,30 @@ export const useMaterialYou = () => {
 // ---
 
 type MaterialYouState = {
+    /** The generated palette. */
     palette: MaterialYouPalette;
+    /** Get the palette from native module. */
     _refresh: () => void;
+    /** Is Material You supported on this device. */
     isSupported: boolean;
 }
 
+/**
+ * The context for the Material You API.
+ */
 const MaterialYouContext = React.createContext(null as unknown as MaterialYouState);
 
-export const MaterialYouService = ({children}: {children: React.ReactNode}) => {
+/**
+ * React Context Provider for the Material You API.
+ * - Makes sure Material You is supported on the device.
+ * - Subscribes to palette regeneration.
+ */
+export const MaterialYouService = ({ children }: { children: React.ReactNode }) => {
     const materialYouApi = useMaterialYou();
 
     // Update color on app focus change.
     React.useEffect(() => {
-        if(!materialYouApi.isSupported)
+        if (!materialYouApi.isSupported)
             return;
 
         const subscription = AppState.addEventListener('focus', () => {
@@ -126,7 +82,7 @@ export const MaterialYouService = ({children}: {children: React.ReactNode}) => {
             // @ts-ignore
             subscription.remove();
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return <MaterialYouContext.Provider value={materialYouApi}>
@@ -134,14 +90,69 @@ export const MaterialYouService = ({children}: {children: React.ReactNode}) => {
     </MaterialYouContext.Provider>
 }
 
-export const useMaterialYouPalette = () => {
-    const {palette} = React.useContext(MaterialYouContext);
+/**
+ * A hook that returns the current palette in current context.
+ */
+export const useMaterialYouPalette = () =>
+    React.useContext(MaterialYouContext).palette;
 
-    return palette;
+/**
+ * A hook that returns the current context.
+ */
+export const useMaterialYouService = () =>
+    React.useContext(MaterialYouContext)
+
+
+// ---
+
+/**
+ * Returns a promise with Material You palette generated from the devices wallpaper.
+ */
+export const getPalette = async () => {
+    try {
+        const palette = await RNMaterialYouModule?.getMaterialYouPalettePromise();
+        if (!palette)
+            throw new Error("Material You is not supported on this device.");
+
+        return { ...palette }
+    } catch (err) {
+        console.error(err);
+        return getInitialPalette();
+    }
 }
 
-export const useMaterialYouService = () => {
-    return React.useContext(MaterialYouContext)
+/**
+ * Returns the Material You palette generated at runtime from the device wallpaper.
+ */
+export const getPaletteSync = (): MaterialYouPalette | null => {
+    try {
+        const palette = getInitialPalette();
+
+        if (!palette)
+            throw new Error("Material You is not supported on this device.");
+
+        return { ...palette }
+    } catch (err) {
+        console.error(err);
+        return null;
+    }
 }
 
-// export default { getPalette, getPaletteSync, deviceSupportsMaterialYou, useMaterialYou, useMaterialYouPalette, useMaterialYouService, MaterialYouService };
+// ---
+
+/**
+ * Returns true, if the device is running Android 12/has the generated color palette.
+ * @returns {Boolean}
+ */
+export const deviceSupportsMaterialYou = () => RNMaterialYouModule?.isSupported ?? false;
+
+// Chaching the palette to avoid flicker when the palette changes and provice a fallback. 
+// Might be stupid, let me know if you have objections.
+let cachedPalette: MaterialYouPalette = null as unknown as MaterialYouPalette;
+
+/**
+ * Returns the initial palette.
+ */
+const getInitialPalette = () => RNMaterialYouModule?.initialPalette ?? cachedPalette ?? DEFAULT_PALETTE;
+
+export { MaterialYouPalette };

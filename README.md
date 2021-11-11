@@ -26,6 +26,49 @@ npm install @assembless/react-native-material-you
 ```
 
 ## How to use
+
+### React Context + Hook
+In order to get the colors always refreshed when the palette is being regenerated on the native side, it's necessary to wrap your app with `MaterialYouService` and get the palette from the context, by using `useMaterialYouPalette` or `useMaterialYouContext` hooks.
+The service subscribes to palette changes on the native side and updates the context when the palette is changed.
+
+```typescript
+import { MaterialYouService, useMaterialYouPalette } from '@assembless/react-native-material-you';
+
+const App = () => (
+    <MaterialYouService>
+        {...}
+    </MaterialYouService>
+)
+
+const MyComponent = () => {
+    const { palette } = useMaterialYouPalette();
+
+    return (
+        <View style={{ backgroundColor: palette.system_neutral2[2] }}>
+            <Text style={{ color: palette.system_accent1[6] }}>Hello World</Text>
+        </View>
+    );
+}
+```
+
+### React Hook
+Alternatively, you can use the `useMaterialYou` hook that returns the system generated color palette. In order to get the newest palette, run the `_refresh` method exposed by the hook.
+```typescript
+import { useMaterialYou } from '@assembless/react-native-material-you';
+
+const MyComponent = () => {
+    const { palette } = useMaterialYou();
+
+    return (
+        <View style={{ backgroundColor: palette.system_neutral2[2] }}>
+            <Text style={{ color: palette.system_accent1[6] }}>Hello World</Text>
+        </View>
+    );
+}
+```
+
+## Static methods
+
 ### Get palette synchronously
 The `getPaletteSync` function returns a rich palette of 5 system generated colors (`system_accent1`, `system_accent2`, `system_accent3`, `system_neutral1`, `system_neutral2`) and each containing 12 shades of Material color in hex strings that are used to determine the hues closest to the user’s wallpaper. The color constants are passed from the native module. Check out the [Android documentation](https://developer.android.com/reference/android/R.color#system_accent1_0) for more details about system generated colors.
 
@@ -43,7 +86,7 @@ const theme = {
 }
 ```
 
-> ⚠️ This function only returns constant colors generated at run once. If you want to get the updated colors generated while the app is already running, you need to use the `getPalette` function which is asynchronous.
+> ⚠️ This function only returns constant colors generated at runtime once. If you want to get the colors regenerated while the app is already running, you need to use the `getPalette` function which is asynchronous.
 
 ### Get palette asynchronously
 ```typescript
@@ -59,22 +102,6 @@ const createTheme = async () => {
             ...
         }
     })
-}
-```
-
-### React hook
-The `useMaterialYou` hook returns the colors and invokes the `getColors` function when the App state changes.
-```typescript
-import { useMaterialYou } from '@assembless/react-native-material-you';
-
-const MyComponent = () => {
-    const { palette } = useMaterialYou();
-
-    return (
-        <View style={{ backgroundColor: palette.system_neutral2[2] }}>
-            <Text style={{ color: palette.system_accent1[6] }}>Hello World</Text>
-        </View>
-    );
 }
 ```
 
