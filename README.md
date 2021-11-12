@@ -114,3 +114,20 @@ Coming soon!
 1. Install dependencies (in root dir and ./example dir)
 2. Open the `example` directory project in Android Studio, build and run the project. (`./example/android`)
 3. Run `yarn start` in the `example` directory.
+
+## Special thanks
+
+We're very thankful to our genius testers and contributors helping us get this package to perfection. Thank you! :heart:
+
+<table>
+  <tr>
+    <td align="center">
+        <a href="https://github.com/0rsa">
+            <img src="https://avatars.githubusercontent.com/u/769750?v=3?s=100" width="100px;" alt=""/>
+            <br />
+            <sub><b>0rsa</b></sub>
+        </a>
+        <br />
+    </td>
+  </tr>
+</table>
