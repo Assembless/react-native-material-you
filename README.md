@@ -41,7 +41,7 @@ const App = () => (
 )
 
 const MyComponent = () => {
-    const { palette } = useMaterialYouPalette();
+    const palette = useMaterialYouPalette();
 
     return (
         <View style={{ backgroundColor: palette.system_neutral2[2] }}>
@@ -104,6 +104,10 @@ const createTheme = async () => {
     })
 }
 ```
+
+## Documentation
+
+Coming soon!
 
 ## How to debug
 

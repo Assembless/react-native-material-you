@@ -7,6 +7,12 @@
   "types": "lib/index.d.ts",
   "author": "Assembless <support@assembless.tech>",
   "license": "MIT",
+  "keywords": [
+    "material you",
+    "material design",
+    "react native",
+    "personalization"
+  ],
   "files": [
     "android",
     "ios",
@@ -31,7 +37,10 @@
     "clean": "rimraf ./lib",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "prepare": "yarn compile",
-    "test": "jest"
+    "test": "jest",
+    "docs": "typedoc --out docs src/index.tsx",
+    "predeploy": "yarn docs",
+    "deploy": "gh-pages -d docs"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
@@ -43,10 +52,12 @@
     "babel-jest": "^26.6.3",
     "eslint": "^7.27.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "gh-pages": "^3.2.3",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.66.0",
     "react-test-renderer": "^17.0.2",
     "rimraf": "^3.0.2",
+    "typedoc": "^0.22.8",
     "typescript": "^4.3.2"
   },
   "peerDependencies": {
