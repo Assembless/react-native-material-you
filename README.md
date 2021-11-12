@@ -107,7 +107,9 @@ const createTheme = async () => {
 
 ## Documentation
 
-Coming soon!
+The documentation has been generated from JSDoc.
+
+[Documentation website](https://assembless.github.io/react-native-material-you/index.html)
 
 ## How to debug
 
