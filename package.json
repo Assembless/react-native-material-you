@@ -1,6 +1,6 @@
 {
   "name": "@assembless/react-native-material-you",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "👩‍🎨 Material You native module for React Native",
   "homepage": "https://github.com/Assembless/react-native-material-you#readme",
   "main": "lib/index.js",

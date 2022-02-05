@@ -10,7 +10,9 @@ Bring newest Android 12 feature [Material You](https://material.io/blog/announci
 
 ## Features
 
+- 🎨 Generate a palette based on dominant wallpaper colors
 - 🪝 Supports React hooks
+- 🕒 Provides fallback palette for older Android versions
 - ♻️ Refreshes palette when the wallpaper changes
 
 ## How to install
@@ -29,13 +31,13 @@ npm install @assembless/react-native-material-you
 
 ### React Context + Hook
 In order to get the colors always refreshed when the palette is being regenerated on the native side, it's necessary to wrap your app with `MaterialYouService` and get the palette from the context, by using `useMaterialYouPalette` or `useMaterialYouContext` hooks.
-The service subscribes to palette changes on the native side and updates the context when the palette is changed.
+The service subscribes to palette changes on the native side and updates the context when the palette is changed. `fallbackPalette` is optional.
 
 ```typescript
-import { MaterialYouService, useMaterialYouPalette } from '@assembless/react-native-material-you';
+import { MaterialYouService, useMaterialYouPalette, defaultPalette } from '@assembless/react-native-material-you';
 
 const App = () => (
-    <MaterialYouService>
+    <MaterialYouService fallbackPalette={defaultPalette}>
         {...}
     </MaterialYouService>
 )
@@ -52,12 +54,12 @@ const MyComponent = () => {
 ```
 
 ### React Hook
-Alternatively, you can use the `useMaterialYou` hook that returns the system generated color palette. In order to get the newest palette, run the `_refresh` method exposed by the hook.
+Alternatively, you can use the `useMaterialYou` hook that returns the system generated color palette. In order to get the newest palette, run the `_refresh` method exposed by the hook. `fallbackPalette` is optional.
 ```typescript
-import { useMaterialYou } from '@assembless/react-native-material-you';
+import { useMaterialYou, defaultPalette } from '@assembless/react-native-material-you';
 
 const MyComponent = () => {
-    const { palette } = useMaterialYou();
+    const { palette } = useMaterialYou({ fallbackPalette: defaultPalette });
 
     return (
         <View style={{ backgroundColor: palette.system_neutral2[2] }}>
