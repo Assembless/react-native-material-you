@@ -5,21 +5,32 @@ import { AppState, NativeModules } from 'react-native'
 import { DEFAULT_PALETTE } from './constants';
 import { MaterialYouPalette } from './types';
 
-const { RNMaterialYouModule } = NativeModules
+let RNMaterialYouModule: any;
+
+try {
+    RNMaterialYouModule = NativeModules?.RNMaterialYouModule;
+} catch(err) {
+    console.error(err);
+    RNMaterialYouModule = undefined;
+}
+
 
 /**
  * Hook to get the generated Material You colors.
  * @category React
+ * @subcategory Hooks
+ * @param {MaterialYouPalette} [fallbackPalette] The palette to use in case Material You is not supported.
  * @returns {MaterialYouPalette}
  */
-export const useMaterialYou = () => {
+export const useMaterialYou = ({ fallbackPalette }: { fallbackPalette?: MaterialYouPalette }) => {
     type State = {
         palette: MaterialYouPalette;
         isSupported: boolean;
         _refresh: () => void;
     }
     const stateRef = React.useRef(null as unknown as State);
-    const [palette, setPalette] = React.useState<MaterialYouPalette>(getInitialPalette());
+    const initialPalette = RNMaterialYouModule?.initialPalette ?? cachedPalette ?? fallbackPalette ?? DEFAULT_PALETTE;
+    const [palette, setPalette] = React.useState<MaterialYouPalette>(initialPalette);
 
     if (stateRef.current === null) {
         const _refresh = async () => {
@@ -65,9 +76,11 @@ const MaterialYouContext = React.createContext(null as unknown as MaterialYouSta
  * React Context Provider for the Material You API.
  * - Makes sure Material You is supported on the device.
  * - Subscribes to palette regeneration.
+ * 
+ * @param {MaterialYouPalette} [fallbackPalette] The palette to use in case Material You is not supported.
  */
-export const MaterialYouService = ({ children }: { children: React.ReactNode }) => {
-    const materialYouApi = useMaterialYou();
+export const MaterialYouService = ({ children, fallbackPalette }: { children: React.ReactNode, fallbackPalette?: MaterialYouPalette }) => {
+    const materialYouApi = useMaterialYou({ fallbackPalette });
 
     // Update color on app focus change.
     React.useEffect(() => {
@@ -154,5 +167,7 @@ let cachedPalette: MaterialYouPalette = null as unknown as MaterialYouPalette;
  * Returns the initial palette.
  */
 const getInitialPalette = () => RNMaterialYouModule?.initialPalette ?? cachedPalette ?? DEFAULT_PALETTE;
+
+export const defaultPalette = DEFAULT_PALETTE;
 
 export { MaterialYouPalette };

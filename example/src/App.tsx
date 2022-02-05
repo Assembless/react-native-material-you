@@ -1,6 +1,91 @@
 import React from 'react'
 import ReactNative, { Button, Pressable, StatusBar, Text, View } from "react-native";
-import  { useMaterialYou } from '@assembless/react-native-material-you'
+import  { useMaterialYou, MaterialYouPalette } from '@assembless/react-native-material-you'
+
+// TODO: Get default colors from Android. Keep in mind supporting lower API level devices.
+export const DEFAULT_PALETTE: MaterialYouPalette = Object.freeze({
+  // system_accent1:  [PlatformColor("@android:color/system_accent1_0").toString(), PlatformColor("@android:color/system_accent1_10").toString(), PlatformColor("@android:color/system_accent1_50").toString(), PlatformColor("@android:color/system_accent1_100").toString(), PlatformColor("@android:color/system_accent1_200").toString(), PlatformColor("@android:color/system_accent1_300").toString(), PlatformColor("@android:color/system_accent1_400").toString(), PlatformColor("@android:color/system_accent1_500").toString(), PlatformColor("@android:color/system_accent1_600").toString(), PlatformColor("@android:color/system_accent1_700").toString(), PlatformColor("@android:color/system_accent1_800").toString(), PlatformColor("@android:color/system_accent1_900").toString(), PlatformColor("@android:color/system_accent1_1000").toString()],
+  // system_accent2:  [PlatformColor("@android:color/system_accent2_0").toString(), PlatformColor("@android:color/system_accent2_10").toString(), PlatformColor("@android:color/system_accent2_50").toString(), PlatformColor("@android:color/system_accent2_100").toString(), PlatformColor("@android:color/system_accent2_200").toString(), PlatformColor("@android:color/system_accent2_300").toString(), PlatformColor("@android:color/system_accent2_400").toString(), PlatformColor("@android:color/system_accent2_500").toString(), PlatformColor("@android:color/system_accent2_600").toString(), PlatformColor("@android:color/system_accent2_700").toString(), PlatformColor("@android:color/system_accent2_800").toString(), PlatformColor("@android:color/system_accent2_900").toString(), PlatformColor("@android:color/system_accent2_1000").toString()],
+  // system_accent3:  [PlatformColor("@android:color/system_accent3_0").toString(), PlatformColor("@android:color/system_accent3_10").toString(), PlatformColor("@android:color/system_accent3_50").toString(), PlatformColor("@android:color/system_accent3_100").toString(), PlatformColor("@android:color/system_accent3_200").toString(), PlatformColor("@android:color/system_accent3_300").toString(), PlatformColor("@android:color/system_accent3_400").toString(), PlatformColor("@android:color/system_accent3_500").toString(), PlatformColor("@android:color/system_accent3_600").toString(), PlatformColor("@android:color/system_accent3_700").toString(), PlatformColor("@android:color/system_accent3_800").toString(), PlatformColor("@android:color/system_accent3_900").toString(), PlatformColor("@android:color/system_accent3_1000").toString()],
+  // system_neutral1: [PlatformColor("@android:color/system_neutral1_0").toString(), PlatformColor("@android:color/system_neutral1_10").toString(), PlatformColor("@android:color/system_neutral1_50").toString(), PlatformColor("@android:color/system_neutral1_100").toString(), PlatformColor("@android:color/system_neutral1_200").toString(), PlatformColor("@android:color/system_neutral1_300").toString(), PlatformColor("@android:color/system_neutral1_400").toString(), PlatformColor("@android:color/system_neutral1_500").toString(), PlatformColor("@android:color/system_neutral1_600").toString(), PlatformColor("@android:color/system_neutral1_700").toString(), PlatformColor("@android:color/system_neutral1_800").toString(), PlatformColor("@android:color/system_neutral1_900").toString(), PlatformColor("@android:color/system_neutral1_1000").toString()],
+  // system_neutral2: [PlatformColor("@android:color/system_neutral2_0").toString(), PlatformColor("@android:color/system_neutral2_10").toString(), PlatformColor("@android:color/system_neutral2_50").toString(), PlatformColor("@android:color/system_neutral2_100").toString(), PlatformColor("@android:color/system_neutral2_200").toString(), PlatformColor("@android:color/system_neutral2_300").toString(), PlatformColor("@android:color/system_neutral2_400").toString(), PlatformColor("@android:color/system_neutral2_500").toString(), PlatformColor("@android:color/system_neutral2_600").toString(), PlatformColor("@android:color/system_neutral2_700").toString(), PlatformColor("@android:color/system_neutral2_800").toString(), PlatformColor("@android:color/system_neutral2_900").toString(), PlatformColor("@android:color/system_neutral2_1000").toString()],
+  system_accent1: [
+    '#99CC66',
+    '#99CC66',
+    '#99CC66',
+    '#99CC66',
+    '#99CC66',
+    '#F6F6F6',
+    '#F5F5F5',
+    '#F4F4F4',
+    '#F3F3F3',
+    '#F2F2F2',
+    '#BD0000',
+    '#BD0000',
+    '#BD0000',
+  ],
+  system_accent2: [
+    '#FFFFFF',
+    '#FAFAFA',
+    '#F9F9F9',
+    '#F8F8F8',
+    '#F7F7F7',
+    '#F6F6F6',
+    '#F5F5F5',
+    '#F4F4F4',
+    '#F3F3F3',
+    '#F2F2F2',
+    '#F1F1F1',
+    '#EFEFEF',
+    '#EEEEEE',
+  ],
+  system_accent3: [
+    '#FFFFFF',
+    '#FAFAFA',
+    '#F9F9F9',
+    '#F8F8F8',
+    '#F7F7F7',
+    '#F6F6F6',
+    '#F5F5F5',
+    '#F4F4F4',
+    '#F3F3F3',
+    '#F2F2F2',
+    '#F1F1F1',
+    '#EFEFEF',
+    '#EEEEEE',
+  ],
+  system_neutral1: [
+    '#FFFFFF',
+    '#FAFAFA',
+    '#F9F9F9',
+    '#F8F8F8',
+    '#F7F7F7',
+    '#F6F6F6',
+    '#F5F5F5',
+    '#F4F4F4',
+    '#F3F3F3',
+    '#F2F2F2',
+    '#F1F1F1',
+    '#EFEFEF',
+    '#EEEEEE',
+  ],
+  system_neutral2: [
+    '#FFFFFF',
+    '#FAFAFA',
+    '#F9F9F9',
+    '#F8F8F8',
+    '#F7F7F7',
+    '#F6F6F6',
+    '#F5F5F5',
+    '#F4F4F4',
+    '#F3F3F3',
+    '#F2F2F2',
+    '#F1F1F1',
+    '#EFEFEF',
+    '#EEEEEE',
+  ],
+})
+
 
 const shades = [0, 10, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 
@@ -11,24 +96,22 @@ const App = () => {
 }
 
 const Demo = () => {
-  const { palette, isSupported, _refresh } = useMaterialYou();
+  const { palette, isSupported, _refresh } = useMaterialYou({ fallbackPalette: DEFAULT_PALETTE });
 
-  const [primaryColor, setPrimaryColor] = React.useState(palette?.system_accent1?.[2] ?? "#FFF");
-  const [secondColor, setSecondColor] = React.useState(palette?.system_accent1?.[3] ?? "#EEE");
-  const [textColor, setTextColor] = React.useState([...palette?.system_accent1].reverse()?.[2] ?? "#000");
+  const [primaryColor, setPrimaryColor] = React.useState(palette?.system_accent1?.[2]);
+  const [secondColor, setSecondColor] = React.useState(palette?.system_accent1?.[3]);
+  const [textColor, setTextColor] = React.useState([...palette?.system_accent1].reverse()?.[2]);
 
   React.useEffect(() => {
-      setPrimaryColor(palette?.system_accent1?.[2] ?? "#FFF");
-      setSecondColor(palette?.system_accent1?.[3] ?? "#EEE");
-      setTextColor([...palette?.system_accent1].reverse()?.[2] ?? "#000");
+      setPrimaryColor(palette?.system_accent1?.[2]);
+      setSecondColor(palette?.system_accent1?.[3]);
+      setTextColor([...palette?.system_accent1].reverse()?.[2]);
     }, [palette?.system_accent1?.[5]]);
-
-  if (!isSupported)
-    return <Text>Material You seems to not be supported on your device. Sorry :/</Text>
 
   if (!palette || !palette.system_accent1 || !palette.system_accent2 || !palette.system_accent3 || !palette.system_neutral1 || !palette.system_neutral2) {
     return <View>
       <Text>Material You is loading...</Text>
+      {!isSupported && <Text>It seems that Material You isn't supported on your device. Sorry :/</Text>}
       <Button title="Refresh" onPress={_refresh}><Text>Refresh</Text></Button>
     </View>
   }

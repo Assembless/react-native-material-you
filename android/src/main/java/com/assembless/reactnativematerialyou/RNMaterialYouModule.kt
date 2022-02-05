@@ -11,12 +11,6 @@ import com.facebook.react.bridge.*
 import com.facebook.react.bridge.WritableArray
 
 
-
-
-
-
-
-
 class RNMaterialYouModule(val reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
     override fun getName() = "RNMaterialYouModule"
