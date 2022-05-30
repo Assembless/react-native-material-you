@@ -30,7 +30,7 @@ npm install @assembless/react-native-material-you
 ## How to use
 
 ### React Context + Hook
-In order to get the colors always refreshed when the palette is being regenerated on the native side, it's necessary to wrap your app with `MaterialYouService` and get the palette from the context, by using `useMaterialYouPalette` or `useMaterialYouContext` hooks.
+In order to get the colors always refreshed when the palette is being regenerated on the native side, it's necessary to wrap your app with `MaterialYouService` and get the palette from the context, by using `useMaterialYouPalette` or `useMaterialYouService` hooks.
 The service subscribes to palette changes on the native side and updates the context when the palette is changed. `fallbackPalette` is optional.
 
 ```typescript
