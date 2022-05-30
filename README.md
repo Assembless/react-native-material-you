@@ -133,5 +133,13 @@ We're very thankful to our genius testers and contributors helping us get this p
         </a>
         <br />
     </td>
+    <td align="center">
+        <a href="https://github.com/jkotra">
+            <img src="https://avatars.githubusercontent.com/u/29590316?v=4?s=100" width="100px;" alt=""/>
+            <br />
+            <sub><b>jkotra</b></sub>
+        </a>
+        <br />
+    </td>
   </tr>
 </table>
