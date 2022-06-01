@@ -34,7 +34,18 @@ export const useMaterialYou = ({ fallbackPalette }: { fallbackPalette?: Material
 
     if (stateRef.current === null) {
         const _refresh = async () => {
-            const _palette = await getPalette();
+
+            let _palette = initialPalette;
+
+            try {
+                _palette = await getPalette();
+            }
+            catch(err){
+                console.error(err);
+                if (!stateRef.current.isSupported && fallbackPalette){
+                    _palette = fallbackPalette;
+                }
+            }
 
             if (_palette && _palette.system_accent1 && _palette.system_accent2 && _palette.system_accent3 && _palette.system_neutral1 && _palette.system_neutral2) {
                 setPalette(_palette)
@@ -122,16 +133,11 @@ export const useMaterialYouService = () =>
  * Returns a promise with Material You palette generated from the devices wallpaper.
  */
 export const getPalette = async () => {
-    try {
-        const palette = await RNMaterialYouModule?.getMaterialYouPalettePromise();
-        if (!palette)
-            throw new Error("Material You is not supported on this device.");
+    const palette = await RNMaterialYouModule?.getMaterialYouPalettePromise();
+    if (!palette)
+        throw new Error("Material You is not supported on this device.");
 
-        return { ...palette }
-    } catch (err) {
-        console.error(err);
-        return getInitialPalette();
-    }
+    return { ...palette }
 }
 
 /**
